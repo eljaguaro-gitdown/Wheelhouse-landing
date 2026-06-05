@@ -69,6 +69,10 @@ main{position:relative; z-index:3; padding:1.5rem 1.25rem; display:flex; flex-di
 @keyframes fade{to{opacity:1;}}
 @keyframes pop{to{transform:scale(1);}}
 
+.wheel .spin{transform-box:view-box; transform-origin:center;
+  animation:spin 9s linear infinite; animation-delay:1.7s;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
 .kicker{font-family:var(--mono); font-size:clamp(.66rem,1.5vw,.8rem); letter-spacing:.6em;
   text-indent:.6em; text-transform:uppercase; color:var(--blue);
   margin-bottom:clamp(.5rem,1.4vh,.9rem); opacity:0; animation:rise .9s var(--ease) 1.35s forwards;}
@@ -97,6 +101,7 @@ main{position:relative; z-index:3; padding:1.5rem 1.25rem; display:flex; flex-di
   .ring,.flange,.spoke{stroke-dashoffset:0!important; animation:none!important;}
   .nip,.valve,.axle,.kicker,.name .a,.name .b,.email,.role{opacity:1!important; animation:none!important;}
   .hub{transform:scale(1)!important; animation:none!important;}
+  .spin{animation:none!important;}
   .divider{width:clamp(60px,11vw,110px); animation:none;}
 }
 </style>
@@ -107,6 +112,7 @@ main{position:relative; z-index:3; padding:1.5rem 1.25rem; display:flex; flex-di
   <div class="grain"></div>
   <main>
     <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" class="wheel" role="img" aria-label="A vintage bicycle wheel — a hub with spokes radiating to the rim">
+  <g class="spin">
   <circle cx="300" cy="300" r="252" class="ring r1" pathLength="1"/>
   <circle cx="300" cy="300" r="238" class="ring r2" pathLength="1"/>
   <circle cx="300" cy="300" r="228" class="ring r3" pathLength="1"/>
@@ -114,6 +120,7 @@ main{position:relative; z-index:3; padding:1.5rem 1.25rem; display:flex; flex-di
   <g class="spokes"><line x1="300.0" y1="260.0" x2="389.1" y2="99.9" pathLength="1" class="spoke" style="--i:0"/><line x1="307.8" y1="260.8" x2="251.7" y2="86.4" pathLength="1" class="spoke" style="--i:1"/><line x1="315.3" y1="263.0" x2="458.9" y2="149.3" pathLength="1" class="spoke" style="--i:2"/><line x1="322.2" y1="266.7" x2="337.1" y2="84.2" pathLength="1" class="spoke" style="--i:3"/><line x1="328.3" y1="271.7" x2="504.5" y2="221.5" pathLength="1" class="spoke" style="--i:4"/><line x1="333.3" y1="277.8" x2="416.9" y2="114.8" pathLength="1" class="spoke" style="--i:5"/><line x1="337.0" y1="284.7" x2="518.9" y2="305.7" pathLength="1" class="spoke" style="--i:6"/><line x1="339.2" y1="292.2" x2="478.8" y2="173.6" pathLength="1" class="spoke" style="--i:7"/><line x1="340.0" y1="300.0" x2="500.1" y2="389.1" pathLength="1" class="spoke" style="--i:8"/><line x1="339.2" y1="307.8" x2="513.6" y2="251.7" pathLength="1" class="spoke" style="--i:9"/><line x1="337.0" y1="315.3" x2="450.7" y2="458.9" pathLength="1" class="spoke" style="--i:10"/><line x1="333.3" y1="322.2" x2="515.8" y2="337.1" pathLength="1" class="spoke" style="--i:11"/><line x1="328.3" y1="328.3" x2="378.5" y2="504.5" pathLength="1" class="spoke" style="--i:12"/><line x1="322.2" y1="333.3" x2="485.2" y2="416.9" pathLength="1" class="spoke" style="--i:13"/><line x1="315.3" y1="337.0" x2="294.3" y2="518.9" pathLength="1" class="spoke" style="--i:14"/><line x1="307.8" y1="339.2" x2="426.4" y2="478.8" pathLength="1" class="spoke" style="--i:15"/><line x1="300.0" y1="340.0" x2="210.9" y2="500.1" pathLength="1" class="spoke" style="--i:16"/><line x1="292.2" y1="339.2" x2="348.3" y2="513.6" pathLength="1" class="spoke" style="--i:17"/><line x1="284.7" y1="337.0" x2="141.1" y2="450.7" pathLength="1" class="spoke" style="--i:18"/><line x1="277.8" y1="333.3" x2="262.9" y2="515.8" pathLength="1" class="spoke" style="--i:19"/><line x1="271.7" y1="328.3" x2="95.5" y2="378.5" pathLength="1" class="spoke" style="--i:20"/><line x1="266.7" y1="322.2" x2="183.1" y2="485.2" pathLength="1" class="spoke" style="--i:21"/><line x1="263.0" y1="315.3" x2="81.1" y2="294.3" pathLength="1" class="spoke" style="--i:22"/><line x1="260.8" y1="307.8" x2="121.2" y2="426.4" pathLength="1" class="spoke" style="--i:23"/><line x1="260.0" y1="300.0" x2="99.9" y2="210.9" pathLength="1" class="spoke" style="--i:24"/><line x1="260.8" y1="292.2" x2="86.4" y2="348.3" pathLength="1" class="spoke" style="--i:25"/><line x1="263.0" y1="284.7" x2="149.3" y2="141.1" pathLength="1" class="spoke" style="--i:26"/><line x1="266.7" y1="277.8" x2="84.2" y2="262.9" pathLength="1" class="spoke" style="--i:27"/><line x1="271.7" y1="271.7" x2="221.5" y2="95.5" pathLength="1" class="spoke" style="--i:28"/><line x1="277.8" y1="266.7" x2="114.8" y2="183.1" pathLength="1" class="spoke" style="--i:29"/><line x1="284.7" y1="263.0" x2="305.7" y2="81.1" pathLength="1" class="spoke" style="--i:30"/><line x1="292.2" y1="260.8" x2="173.6" y2="121.2" pathLength="1" class="spoke" style="--i:31"/></g>
   <g class="nips"><circle cx="389.1" cy="99.9" r="1.6" class="nip"/><circle cx="251.7" cy="86.4" r="1.6" class="nip"/><circle cx="458.9" cy="149.3" r="1.6" class="nip"/><circle cx="337.1" cy="84.2" r="1.6" class="nip"/><circle cx="504.5" cy="221.5" r="1.6" class="nip"/><circle cx="416.9" cy="114.8" r="1.6" class="nip"/><circle cx="518.9" cy="305.7" r="1.6" class="nip"/><circle cx="478.8" cy="173.6" r="1.6" class="nip"/><circle cx="500.1" cy="389.1" r="1.6" class="nip"/><circle cx="513.6" cy="251.7" r="1.6" class="nip"/><circle cx="450.7" cy="458.9" r="1.6" class="nip"/><circle cx="515.8" cy="337.1" r="1.6" class="nip"/><circle cx="378.5" cy="504.5" r="1.6" class="nip"/><circle cx="485.2" cy="416.9" r="1.6" class="nip"/><circle cx="294.3" cy="518.9" r="1.6" class="nip"/><circle cx="426.4" cy="478.8" r="1.6" class="nip"/><circle cx="210.9" cy="500.1" r="1.6" class="nip"/><circle cx="348.3" cy="513.6" r="1.6" class="nip"/><circle cx="141.1" cy="450.7" r="1.6" class="nip"/><circle cx="262.9" cy="515.8" r="1.6" class="nip"/><circle cx="95.5" cy="378.5" r="1.6" class="nip"/><circle cx="183.1" cy="485.2" r="1.6" class="nip"/><circle cx="81.1" cy="294.3" r="1.6" class="nip"/><circle cx="121.2" cy="426.4" r="1.6" class="nip"/><circle cx="99.9" cy="210.9" r="1.6" class="nip"/><circle cx="86.4" cy="348.3" r="1.6" class="nip"/><circle cx="149.3" cy="141.1" r="1.6" class="nip"/><circle cx="84.2" cy="262.9" r="1.6" class="nip"/><circle cx="221.5" cy="95.5" r="1.6" class="nip"/><circle cx="114.8" cy="183.1" r="1.6" class="nip"/><circle cx="305.7" cy="81.1" r="1.6" class="nip"/><circle cx="173.6" cy="121.2" r="1.6" class="nip"/></g>
   <line x1="370.5" y1="83.2" x2="370.8" y2="82.2" class="valve"/>
+  </g>
   <circle cx="300" cy="300" r="40" class="flange" pathLength="1"/>
   <circle cx="300" cy="300" r="15" class="hub"/>
   <circle cx="300" cy="300" r="6" class="axle"/>
