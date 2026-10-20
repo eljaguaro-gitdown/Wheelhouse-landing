@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Wheelhouse Workshop</title>
-<meta name="description" content="A creative and technology studio in Oakland: one shop, every project handpicked — games, software, digital media.">
+<meta name="description" content="The Wheelhouse Workshop is one shop where every project is handpicked, built from inside the communities it belongs to, and handed back to them.">
 <link rel="canonical" href="https://www.thewheelhouseworkshop.com/">
 <meta property="og:title" content="The Wheelhouse Workshop">
-<meta property="og:description" content="A creative and technology studio in Oakland: one shop, every project handpicked — games, software, digital media.">
+<meta property="og:description" content="The Wheelhouse Workshop is one shop where every project is handpicked, built from inside the communities it belongs to, and handed back to them.">
 <meta property="og:url" content="https://www.thewheelhouseworkshop.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -241,6 +241,8 @@ svg.dwg{display:block; width:100%; height:auto; overflow:visible;}
 @supports (animation-timeline: view()){
   .draw{stroke-dasharray:1; stroke-dashoffset:1; animation:draw linear both; animation-timeline:view(); animation-range:entry 0% cover 35%;}
   .hl{animation:sweep linear both; animation-timeline:view(); animation-range:entry 30% cover 50%;}
+  .rise{animation:rise linear both; animation-timeline:view(); animation-range:entry 0% cover 25%;}
+  .rise-2{animation-range:entry 10% cover 35%;}
 }
 
 /* fallback: JS adds .no-timeline to html when @supports animation-timeline fails */
@@ -248,14 +250,18 @@ svg.dwg{display:block; width:100%; height:auto; overflow:visible;}
 .no-timeline .draw.is-in{animation:draw 1.2s var(--ease) forwards;}
 .no-timeline .hl{background-size:0% 100%;}
 .no-timeline .hl.is-in{animation:sweep 1.2s var(--ease) forwards;}
+.no-timeline .rise{opacity:0; transform:translateY(24px);}
+.no-timeline .rise.is-in{animation:rise .9s var(--ease) forwards;}
+.no-timeline .rise-2.is-in{animation-delay:.2s;}
 
 /* pause infinite animations while offscreen (balloons stay running to keep sync with callouts) */
 .offscreen .work,.offscreen .flow,.offscreen .signal,.offscreen .ping,.offscreen .rot,.offscreen .rot-b,.offscreen .feed-back,.offscreen .wob,.offscreen .snap,.offscreen .press,.offscreen .cyc,.wheel.offscreen .spin{animation-play-state:paused !important;}
 
 /* ---------- SHEET HEAD ---------- */
-.head{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:end;}
-.head h2{font-weight:600; font-size:clamp(2.6rem,6vw,5.2rem); letter-spacing:-.03em; line-height:.98; margin:0; color:var(--ink);}
-.head .sub{font-style:italic; color:var(--ink-dim); font-size:20px; margin:18px 0 0;}
+.head{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:start;}
+.head h2.label{margin:0 0 26px;}
+.mission{display:grid; gap:1.2em; font-weight:600; font-size:clamp(2.4rem,4.5vw,4rem); line-height:1.06; letter-spacing:-.025em; color:var(--ink);}
+.mission p{margin:0; max-width:16em; text-wrap:balance;}
 .stamp{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--blue-deep); border:1.5px solid var(--blue-deep); padding:12px 16px; line-height:1.9; transform:rotate(-3deg);}
 
 /* ---------- DEAD SET FEATURE ---------- */
@@ -293,6 +299,8 @@ svg.dwg{display:block; width:100%; height:auto; overflow:visible;}
 /* ---------- WHO ---------- */
 .dim-line{margin:0 0 44px; overflow-x:auto;}
 .list-h{font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; color:var(--blue-deep); margin:0 0 12px;}
+.byline{font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--blue-deep); margin:-14px 0 36px;}
+.byline .sep{opacity:.6; padding:0 .3em;}
 ul.cv{list-style:none; margin:0; padding:0;}
 ul.cv li{font-size:17.5px; line-height:1.45; padding:11px 0 11px 24px; border-bottom:1px dashed rgba(52,97,193,.35); position:relative;}
 ul.cv li::before{content:""; position:absolute; left:2px; top:19px; width:7px; height:7px; border-radius:50%; background:var(--blue-deep);}
@@ -326,6 +334,7 @@ ul.cv a:hover{color:var(--blue-deep);}
 .invite .fn-h{color:#5C5040;}
 .invite .fn-t{font-size:18px;}
 .invite .wavy{text-decoration:underline wavy var(--blue-deep); text-decoration-thickness:1.5px; text-underline-offset:5px;}
+.invite .fn-sign{margin:10px 0 0; font-style:italic; font-size:18px; text-align:right;}
 .invite a{color:var(--ink); text-decoration:underline; text-decoration-color:var(--ink); text-decoration-thickness:1px; text-underline-offset:3px;}
 .invite a:hover{color:var(--blue-deep); text-decoration-color:var(--blue-deep);}
 
@@ -394,6 +403,7 @@ ul.cv a:hover{color:var(--blue-deep);}
   .hl{background-size:100% 100% !important;}
   .no-timeline .draw{stroke-dashoffset:0 !important;}
   .no-timeline .hl{background-size:100% 100% !important;}
+  .rise{opacity:1 !important; transform:none !important;}
 }
 
 /* ---------- PHONE ---------- */
@@ -497,9 +507,11 @@ ul.cv a:hover{color:var(--blue-deep);}
         <div class="cell">
           <div class="head">
             <div>
-              <p class="label">About the Workshop<span class="sep">·</span>Sheet 1 of 2</p>
-              <h2 id="about-title">One shop. <span class="hl">Every project handpicked.</span></h2>
-              <p class="sub">Why, what, who and how — drawn by the founder, not to scale.</p>
+              <h2 id="about-title" class="label">About the Workshop<span class="sep">·</span>Sheet 1 of 2</h2>
+              <div class="mission">
+                <p class="rise">The Wheelhouse Workshop is one shop where every project is handpicked, built from inside the communities it belongs to, and handed back to them.</p>
+                <p class="rise rise-2">Our work is the marriage of digital and human: what lives on our screens, turned into things worth keeping, rooms worth being in, and friendships worth making.</p>
+              </div>
             </div>
             <div class="stamp" aria-hidden="true">REV B<br>SCALE NTS<br>OAKLAND, CALIFORNIA</div>
           </div>
@@ -588,7 +600,7 @@ ul.cv a:hover{color:var(--blue-deep);}
           <p class="key">The project list and the passion list are <span class="hl">the same list.</span></p>
           <div class="two">
             <div>
-              <p class="prose">A creative and technology studio in Oakland: one shop, every project handpicked — games, software, digital media. The high concept is the marriage of digital and human, enriching personal and professional lives. Each spoke serves a community I already belong to, across generations.</p>
+              <p class="prose">A creative and technology studio in Oakland: one shop, every project handpicked — games, software, digital media. The high concept is the marriage of digital and human, enriching personal and professional lives. Each spoke serves a community the Workshop already belongs to, across generations.</p>
             </div>
             <figure>
               <svg class="dwg" viewBox="-70 0 620 470" role="img" aria-label="The wheel: one hub, three communities. Music is a solid spoke ending at Dead-set.org, live. Cycling and video games are hidden lines — in the shop. Three center lines mark spokes not yet earned.">
@@ -662,7 +674,7 @@ ul.cv a:hover{color:var(--blue-deep);}
     </g>
   </svg>
   <p class="eyebrow">THE RULE</p>
-  <blockquote>If I’m not excited to <span class="hl">live inside it,</span> it doesn’t get a spoke.</blockquote>
+  <blockquote>“If I’m not excited to <span class="hl">live inside it,</span> it doesn’t get a spoke.”</blockquote>
   <p class="sig">Jay Cohen <span class="amp">·</span> Founder &amp; Wheelwright</p>
 </section>
 
@@ -679,7 +691,8 @@ ul.cv a:hover{color:var(--blue-deep);}
         <div class="zone" aria-hidden="true">C</div>
         <div class="cell">
           <p class="label"><span class="tag">C</span>Who<span class="sep">·</span>Jay Cohen, Founder &amp; Wheelwright</p>
-          <p class="key sm">The audience comes last because, in my communities, <span class="hl">I am the audience.</span></p>
+          <p class="key sm">“The audience comes last because, in my communities, <span class="hl">I am the audience.</span>”</p>
+          <p class="byline">Jay Cohen <span class="sep">·</span> Founder &amp; Wheelwright</p>
           <figure class="dim-line">
             <svg class="dwg" viewBox="0 0 1000 80" role="img" aria-label="A dimension line: in games since June 1996, and full-time on the Workshop since August 2026.">
               <line x1="20" y1="10" x2="20" y2="70" class="ln thin"></line>
@@ -719,7 +732,7 @@ ul.cv a:hover{color:var(--blue-deep);}
               </figure>
               <div class="fieldnote">
                 <p class="fn-h">FIELD NOTE · 2018</p>
-                <p class="fn-t">A year around the world with my family of five: eighteen countries across Asia, Europe and Latin America, studying language, history, politics, handicrafts, science and religion — and more than 1,500 miles and 200,000 feet of climbing on two wheels. <span class="hl">We still love each other.</span></p>
+                <p class="fn-t">A year around the world with the founder’s family of five: eighteen countries across Asia, Europe and Latin America, studying language, history, politics, handicrafts, science and religion — and more than 1,500 miles and 200,000 feet of climbing on two wheels. Their verdict: <span class="hl">“We still love each other.”</span></p>
               </div>
             </div>
           </div>
@@ -852,6 +865,7 @@ ul.cv a:hover{color:var(--blue-deep);}
               <div class="invite">
                 <p class="fn-h">A NOTE TO VISITORS</p>
                 <p class="fn-t">The door’s open. If something here makes you want to <span class="wavy">roll up your sleeves</span> and explore the workshop with me, <a href="mailto:jay@thewheelhouseworkshop.com">write to me</a> — I’d be glad to hear from you.</p>
+                <p class="fn-sign">— Jay</p>
               </div>
               <table>
                 <thead><tr><th>REV</th><th>DESCRIPTION</th></tr></thead>
@@ -893,7 +907,7 @@ ul.cv a:hover{color:var(--blue-deep);}
         if(e.isIntersecting){ e.target.classList.add('is-in'); revealIO.unobserve(e.target); }
       });
     }, {threshold:0.25});
-    document.querySelectorAll('.draw, .hl').forEach(function(el){ revealIO.observe(el); });
+    document.querySelectorAll('.draw, .hl, .rise').forEach(function(el){ revealIO.observe(el); });
   }
   var pauseIO = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ e.target.classList.toggle('offscreen', !e.isIntersecting); });
