@@ -297,7 +297,8 @@ svg.dwg{display:block; width:100%; height:auto; overflow:visible;}
 .band .sig .amp{color:var(--blue); font-style:normal;}
 
 /* ---------- WHO ---------- */
-.dim-line{margin:0 0 44px; overflow-x:auto;}
+.dim-line{margin:0 0 44px;}
+.dim-line.phone{display:none;}
 .list-h{font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; color:var(--blue-deep); margin:0 0 12px;}
 ul.cv{list-style:none; margin:0; padding:0;}
 ul.cv li{font-size:17.5px; line-height:1.45; padding:11px 0 11px 24px; border-bottom:1px dashed rgba(52,97,193,.35); position:relative;}
@@ -420,13 +421,13 @@ ul.cv a:hover{color:var(--blue-deep);}
   .prose{font-size:17px;}
   .band{padding:80px 20px;}
   .band .ghost{width:600px; height:600px; margin:-300px 0 0 -300px;}
-  .dim-line svg{min-width:720px;}
+  .dim-line.desk{display:none;}
+  .dim-line.phone{display:block;}
   .tblock{border-left:0; border-top:1.5px solid var(--blue-deep);}
   .revs{padding:22px 20px;}
   /* drawings: labels sized to read at phone width */
   .dwg text{stroke-width:5px;}
   .dwg.dt{display:none;} .dwg.ph{display:block;}
-  #who .dwg text{font-size:14px;}
   #what .dwg text{font-size:19px; letter-spacing:.1em;}
   #what .dwg text.lg{font-size:21px;}
   #what .dwg text.l-cy1{transform:translateY(-4px);}
@@ -690,7 +691,20 @@ ul.cv a:hover{color:var(--blue-deep);}
         <div class="cell">
           <p class="label"><span class="tag">C</span>Who<span class="sep">·</span>Jay Cohen, Founder &amp; Wheelwright</p>
           <p class="key sm">People, not numbers — in <span class="hl">rooms already lived in.</span></p>
-          <figure class="dim-line">
+          <figure class="dim-line phone">
+            <svg class="dwg" viewBox="0 0 360 84" role="img" aria-label="A dimension line: in games since June 1996, and full-time on the Workshop since August 2026.">
+              <line x1="8" y1="14" x2="8" y2="54" class="ln thin"></line>
+              <line x1="250" y1="14" x2="250" y2="54" class="ln thin"></line>
+              <line x1="22" y1="44" x2="236" y2="44" class="ln draw" pathLength="1"></line>
+              <polygon points="8,44 22,39 22,49" class="fill"></polygon>
+              <polygon points="250,44 236,39 236,49" class="fill"></polygon>
+              <text x="129" y="32" class="mid">IN GAMES · SINCE JUNE 1996</text>
+              <line x1="250" y1="44" x2="352" y2="44" class="flow" style="stroke: #BF5A33; stroke-width: 2.4px"></line>
+              <circle cx="250" cy="44" r="5" class="live"></circle>
+              <text x="352" y="76" class="end ink">THE WORKSHOP · AUG 2026</text>
+            </svg>
+          </figure>
+          <figure class="dim-line desk">
             <svg class="dwg" viewBox="0 0 1000 80" role="img" aria-label="A dimension line: in games since June 1996, and full-time on the Workshop since August 2026.">
               <line x1="20" y1="10" x2="20" y2="70" class="ln thin"></line>
               <line x1="840" y1="10" x2="840" y2="70" class="ln thin"></line>
